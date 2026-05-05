@@ -8,7 +8,7 @@ def load_and_preprocess(path="train.csv"):
     # Drop columns
     df = df.drop(['Name', 'Ticket', 'Cabin'], axis=1)
 
-    # Fill ALL missing values بشكل آمن
+    # Fill ALL missing values 
     df['Age'] = df['Age'].fillna(df['Age'].median())
     df['Embarked'] = df['Embarked'].fillna(df['Embarked'].mode()[0])
     df['Fare'] = df['Fare'].fillna(df['Fare'].median())
@@ -21,7 +21,7 @@ def load_and_preprocess(path="train.csv"):
     X = df.drop('Survived', axis=1)
     y = df['Survived']
 
-    # 🔥 تأكيد عدم وجود NaN نهائي
+    #  تأكيد عدم وجود NaN نهائي
     X = X.fillna(0)
 
     scaler = StandardScaler()
